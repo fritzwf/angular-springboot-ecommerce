@@ -1,0 +1,23 @@
+<div class="login-status-header">
+
+    <div *ngIf="isAuthenticated && userFirstName; else loggedOut">
+        <div class="d-flex">
+            <span class="login-status-user-info">
+                Welcome {{ userFirstName }}
+            </span>
+            <span>
+                <button (click)="logout()" class="security-btn-login">Logout</button>
+            </span>
+        </div>
+    </div>
+    <ng-template #loggedOut>
+        <button routerLink="/login" class="security-btn-login">Login</button>
+    </ng-template>
+    <span>
+        <button *ngIf="isAuthenticated" routerLink="/members" class="security-btn-login ml-5">Member</button>
+    </span>
+    <span>
+        <button *ngIf="isAuthenticated" routerLink="/order-history" class="security-btn-login ml-5">Orders</button>
+    </span>
+
+</div>
